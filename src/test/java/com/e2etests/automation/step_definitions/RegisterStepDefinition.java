@@ -16,7 +16,7 @@ public class RegisterStepDefinition {
 	
 	@When("Je me connecte a la page Register")
 	public void jeMeConnecteALaPageRegister() {
-		registerPage.goToUrl();  
+		registerPage.goToUrl(); 
 	}
 	@When("Je saisis le First Name {string}")
 	public void jeSaisisLeFirstName(String firstName) {

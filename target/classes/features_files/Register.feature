@@ -4,7 +4,7 @@ Feature: Je verifie la page Register
   @Register
   Scenario: Je verifie la page Register
     Given Je me connecte a l application Mercury
-    And Je me connecte a la page Register
+    When Je me connecte a la page Register
     When Je saisis le First Name "SiwarS"
     And Je saisis le Last Name "test"
     And Je saisis le Phone "53821049"

@@ -1,17 +1,14 @@
-
-@tag
 Feature: Verifier le module register
   En tant que utilisateur je souhaite remplir le formulaire afin de m enregistrer
 
-  
-
-  @tag2
+  @moduleRegister
   Scenario Outline: Remplir le formulaire register
     Given Je me connecte a l application Mercury
     When Je clique sur le boutton Register
-    Then I verify the <status> in step
+    And Je saisis un data dans le champs username "<username>"
+    And Je saisis un data dans le champs lastname "<lastname>"
 
     Examples: 
-      | name  | value | status  |
-      | name1 |     5 | success |
-      | name2 |     7 | Fail    |
+      | username | lastname |
+      | Awatef   | Agrbaoui |
+      | Siwar    | Saidane  |
