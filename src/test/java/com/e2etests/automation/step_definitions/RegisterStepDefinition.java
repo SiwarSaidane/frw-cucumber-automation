@@ -1,22 +1,26 @@
 package com.e2etests.automation.step_definitions;
 
 import org.junit.Assert;
-import com.e2etests.automation.page_objects.AuthenticationPage;
+import com.e2etests.automation.page_objects.RegisterPage;
 
-
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class RegisterStepDefinition {
 
-	@Given("Je me connecte a la page Register")
+	private RegisterPage registerPage;
+	
+	public RegisterStepDefinition() {
+		this.registerPage = new RegisterPage();
+	}
+	
+	@When("Je me connecte a la page Register")
 	public void jeMeConnecteALaPageRegister() {
-	   
+		registerPage.goToUrl();  
 	}
 	@When("Je saisis le First Name {string}")
-	public void jeSaisisLeFirstName(String string) {
-	    
+	public void jeSaisisLeFirstName(String firstName) {
+		registerPage.fillFirstName(firstName);
 	}
 	@When("Je saisis le Last Name {string}")
 	public void jeSaisisLeLastName(String string) {
@@ -64,45 +68,11 @@ public class RegisterStepDefinition {
 	}
 	@When("Je clique sur le boutton Envoyer")
 	public void jeCliqueSurLeBouttonEnvoyer() {
-	   
+		registerPage.clickOnButtonEnvoyer();	
 	}
 	@Then("Je suis enregistre dans l application")
-	public void jeSuisEnregistreDansLApplication() {
-	    
-	}
-
-
-	//////
-	
-	
-	
-	private AuthenticationPage authenticationPage;
-	
-
-	public RegisterStepDefinition() {
-		this.authenticationPage = new AuthenticationPage();
-	}
-	
-	@Given("Je me connecte a l application Mercury")
-	public void jeMeConnecteALApplicationMercury() {
-		authenticationPage.goToUrl();   
-	}
-	@When("Je saisis le username {string}")
-	public void jeSaisisLeUsername(String name) {
-		authenticationPage.fillUserName(name);
-	}
-	@When("Je saisis le password {string}")
-	public void jeSaisisLePassword(String password) {
-	    authenticationPage.fillPassword(password);
-	}
-	@When("Je clique sur le boutton submit")
-	public void jeCliqueSurLeBouttonSubmit() {
-		authenticationPage.clickOnButtonSubmit();	    
-	}
-	@Then("Je me redirige vers la page home {string}")
-	public void jeMeRedirigeVersLaPageHome(String text) {
-		String message = AuthenticationPage.welcomeMessage.getText();
+	public void jeSuisEnregistreDansLApplication(String text) {
+		String message = RegisterPage.registerMessage.getText();
 		Assert.assertEquals(text, message);
 	}
-
 }

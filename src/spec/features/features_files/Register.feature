@@ -4,8 +4,8 @@ Feature: Je verifie la page Register
   @Register
   Scenario: Je verifie la page Register
     Given Je me connecte a l application Mercury
-    And Je me connecte a la page Register
-    When Je saisis le First Name "test"
+    When Je me connecte a la page Register
+    When Je saisis le First Name "SiwarS"
     And Je saisis le Last Name "test"
     And Je saisis le Phone "53821049"
     And Je saisis le Email "siwarsaidane@gmail.com"
@@ -16,8 +16,8 @@ Feature: Je verifie la page Register
     And Je saisis Postal Code "2023"
     And Je saisis Country "TUNISIA"
     And Je saisis City "Tunis"
-    And Je saisis User Name "testName"
-    And Je saisis Password "test"
+    And Je saisis User Name "SiwarS"
+    And Je saisis Password "SiwarS"
     And Je saisis Confirm Password "test"
     And Je clique sur le boutton Envoyer
     Then Je suis enregistre dans l application 
